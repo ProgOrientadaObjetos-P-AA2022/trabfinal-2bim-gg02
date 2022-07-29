@@ -53,8 +53,8 @@ public class Enlace03 {
                     + "numeroCelular, numeroMinutos, costoMinuto,"
                     + " megasExpresadaGigas,"
                     + " costoGiga, porcentajeDescuento, pagoMensual ) "
-                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', '%.2f'"
-                    + ", '%.2f', '%.2f', '%.2f','%.2f', '%.2f')",
+                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', %s"
+                    + ", %s, %s, %s, %s, %s)",
                     plan.obtenerPropietario(),
                     plan.obtenerCedula(),
                     plan.obtenerCiudad(),

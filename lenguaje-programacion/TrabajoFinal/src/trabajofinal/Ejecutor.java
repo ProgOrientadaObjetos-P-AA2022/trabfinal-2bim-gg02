@@ -50,7 +50,7 @@ public class Ejecutor {
                     + "[2]Plan PostPagoMegas\n"
                     + "[3]Plan PostPagoMinutosMegas\n"
                     + "[4]Plan PostPagoMinutosMegasEconómico\n"
-                    + "[5]Cambiar Datos Cliente"
+                    + "[5]Cambiar Datos Cliente\n"
                     + "[6]Presentar datos registrados\n"
                     + "[7]Salir del Programa\n"
             );
@@ -100,10 +100,14 @@ public class Ejecutor {
                     break;
                 case "6":
                     String data = "";
+
                     for (int i = 0; i < planRemasterizado.size(); i++) {
-                        data = String.format("%s%s", data,
-                                planRemasterizado.get(
-                                        planRemasterizado.size()).get(i));
+                        for (int j = 0; j < planRemasterizado.get(i).size(); j++) {
+                            data = String.format("%s%s\n", data,
+                                    planRemasterizado.get(i).get(j));
+
+                        }
+
                     }
                     System.out.println(data);
 
@@ -130,23 +134,28 @@ public class Ejecutor {
                     System.out.println("Ingresar un valor correcto por favor...");
                     break;
             }
-            if (!plan.isEmpty()) {
-                mensaje = String.format("    +-----------------------+\n"
-                        + "    |FACTURA PLAN TELEFÓNICO|\n    "
-                        + "+-----------------------+\n");
-                for (int i = 0; i < planRemasterizado.size(); i++) {
-                    mensaje = String.format("%s%s", mensaje,
-                            planRemasterizado.get(planRemasterizado.size() - 1).get(i));
-
-                }
-                System.out.println(mensaje);
-
-            }
-            System.out.println("    +---------------------------------+\n"
-                    + "    |GRACIAS POR USAR NUESTRO PROGRAMA|\n    "
-                    + "+---------------------------------+\n");
 
         }
+        if (!plan.isEmpty()) {
+            mensaje = String.format("    +-----------------------+\n"
+                    + "    |FACTURA PLAN TELEFÓNICO|\n    "
+                    + "+-----------------------+\n");
+
+            for (int i = 0; i < planRemasterizado.size(); i++) {
+                for (int j = 0; j < planRemasterizado.get(i).size(); j++) {
+                    mensaje = String.format("%s%s\n", mensaje,
+                            planRemasterizado.get(i).get(j));
+
+                }
+
+            }
+
+            System.out.println(mensaje);
+
+        }
+        System.out.println("    +---------------------------------+\n"
+                + "    |GRACIAS POR USAR NUESTRO PROGRAMA|\n    "
+                + "+---------------------------------+\n");
 
     }
 

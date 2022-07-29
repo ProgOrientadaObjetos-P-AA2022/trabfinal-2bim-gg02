@@ -50,8 +50,8 @@ public class Enlace02 {
                     + "nombre, cedula, ciudad, marcaCelular, modeloCelular,"
                     + "numeroCelular, numeroMinutos, costoMinutos, megasExpresadaGigas,"
                     + " costoGigas, pagoMensual ) "
-                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', '%.2f'"
-                    + ", '%.2f', '%.2f', '%.2f', '%.2f')",
+                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', %s"
+                    + ", %s, %s, %s, %s)",
                     plan.obtenerPropietario(),
                     plan.obtenerCedula(),
                     plan.obtenerCiudad(),

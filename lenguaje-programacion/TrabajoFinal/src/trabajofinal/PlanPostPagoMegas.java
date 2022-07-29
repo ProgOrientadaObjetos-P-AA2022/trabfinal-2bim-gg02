@@ -36,6 +36,7 @@ public class PlanPostPagoMegas extends PlanCelular {
 
     public void establecerGigas(double a) {
         gigas = a / 1024;
+        gigas = .2f;
     }
 
     public void establecerCostoGiga(double a) {

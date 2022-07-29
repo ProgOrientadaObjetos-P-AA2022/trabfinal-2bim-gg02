@@ -49,8 +49,8 @@ public class Enlace01 {
             String data = String.format("INSERT INTO planPostPagoMegas (nombre,"
                     + "cedula, ciudad, marcaCelular, modeloCelular,"
                     + "numeroCelular, gigas, costoGiga, tarifaBase, pagoMensual ) "
-                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', '%.2f'"
-                    + ", '%.2f', '%.2f', '%.2f')",
+                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', %s"
+                    + ", %s, %s, %s)",
                     plan.obtenerPropietario(),
                     plan.obtenerCedula(),
                     plan.obtenerCiudad(),
@@ -81,11 +81,15 @@ public class Enlace01 {
             ResultSet rs = statement.executeQuery(data);
             while (rs.next()) {
                 PlanPostPagoMegas plan = new PlanPostPagoMegas(
-                        rs.getDouble("gigas"), rs.getDouble("costoGiga"),
-                        rs.getDouble("tarifaBase"), rs.getDouble("pagoMensual"),
-                         rs.getString("nombre"), rs.getString("cedula"),
-                        rs.getString("ciudad"), rs.getString("marcaCelular"),
-                         rs.getString("modeloCelular"),
+                        rs.getDouble("gigas"),
+                        rs.getDouble("costoGiga"),
+                        rs.getDouble("tarifaBase"),
+                        rs.getDouble("pagoMensual"),
+                        rs.getString("nombre"),
+                        rs.getString("cedula"),
+                        rs.getString("ciudad"),
+                        rs.getString("marcaCelular"),
+                        rs.getString("modeloCelular"),
                         rs.getString("numeroCelular"));
                 lista.add(plan);
             }

@@ -87,8 +87,10 @@ public abstract class PlanCelular {
         String mensaje = String.format("Propietario: %s\n"
                 + "Cédula del propietario: %s\n"
                 + "Ciudad del Propietario: %s\n"
+                + "Marca Celular: %s\n"
+                + "Modelo Celular: %s\n"
                 + "Número Celular: %s\n", propietario,
-                cedula, ciudad, numeroCelular);
+                cedula, ciudad, marcaCelular, modeloCelular, numeroCelular);
         return mensaje;
     }
 

@@ -91,9 +91,8 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
 
     @Override
     public String toString() {
-        String mensaje = String.format("\t<--PlanPostPagoMinutosMegas"
+        String mensaje = String.format("\t<--PlanPostPagoMinutosMegasEconómico-->\n"
                 + "%s\n"
-                + "Económico-->\n"
                 + "Minutos: %.2f\n"
                 + "Costo por minuto: %.2f\n"
                 + "Megas expresado en Gigas: %.2f\n"

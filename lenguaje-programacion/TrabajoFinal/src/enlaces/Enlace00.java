@@ -50,8 +50,8 @@ public class Enlace00 {
                     + "cedula, ciudad, marcaCelular, modeloCelular,"
                     + "numeroCelular, minutosNacionales, costoMinutosNacionales,"
                     + " minutosInternacionales, costoMinutosInternacionales, pagoMensual) "
-                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', '%.2f'"
-                    + ", '%.2f', '%.2f', '%.2f', '%.2f')",
+                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', %s"
+                    + ", %s, %s, %s, %s)",
                     plan.obtenerPropietario(),
                     plan.obtenerCedula(),
                     plan.obtenerCiudad(),
@@ -88,8 +88,10 @@ public class Enlace00 {
                         rs.getDouble("minutosInternacionales"),
                         rs.getDouble("costoMinutosInternacionales"),
                         rs.getDouble("pagoMensual"),
-                        rs.getString("nombre"), rs.getString("cedula"),
-                        rs.getString("ciudad"), rs.getString("marcaCelular"),
+                        rs.getString("nombre"),
+                        rs.getString("cedula"),
+                        rs.getString("ciudad"),
+                        rs.getString("marcaCelular"),
                         rs.getString("modeloCelular"),
                         rs.getString("numeroCelular"));
                 lista.add(plan);
