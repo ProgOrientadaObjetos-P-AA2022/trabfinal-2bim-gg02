@@ -36,7 +36,6 @@ public class PlanPostPagoMegas extends PlanCelular {
 
     public void establecerGigas(double a) {
         gigas = a / 1024;
-        gigas = .2f;
     }
 
     public void establecerCostoGiga(double a) {
@@ -66,7 +65,7 @@ public class PlanPostPagoMegas extends PlanCelular {
 
     @Override
     public String toString() {
-        String mensaje = String.format("\t<--PlanPostPagoMegas-->\n"
+        String mensaje = String.format("\n\t<--PlanPostPagoMegas-->\n"
                 + "%s\n"
                 + "Megas expresado en Gigas: %.2f\n"
                 + "Costo por Giga: %.2f\n"

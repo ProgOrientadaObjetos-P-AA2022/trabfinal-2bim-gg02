@@ -46,6 +46,7 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
 
     public void establecerGigas(double a) {
         gigas = a/1024;
+        
     }
 
     public void establecerCostoGiga(double a) {
@@ -70,7 +71,7 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
 
     @Override
     public String toString() {
-        String mensaje = String.format("<--PlanPostPagoMinutosMegas-->\n"
+        String mensaje = String.format("\n\t<--PlanPostPagoMinutosMegas-->\n"
                 + "%s\n"
                 + "Minutos: %.2f\n"
                 + "Costo de los minutos: %.2f\n"

@@ -23,7 +23,7 @@ public class Ejecutor {
         Scanner a = new Scanner(System.in);
         a.useLocale(Locale.US);
         ArrayList<PlanCelular> plan = new ArrayList<>();
-        ArrayList<ArrayList> planRemasterizado = new ArrayList<>();
+        ArrayList <ArrayList> planRemasterizado = new ArrayList<>();
         boolean bandera = true;
         String mensaje = "";
 
@@ -105,9 +105,7 @@ public class Ejecutor {
                         for (int j = 0; j < planRemasterizado.get(i).size(); j++) {
                             data = String.format("%s%s\n", data,
                                     planRemasterizado.get(i).get(j));
-
                         }
-
                     }
                     System.out.println(data);
 
@@ -126,8 +124,6 @@ public class Ejecutor {
                         } else {
                             bandera = true;
                         }
-                    } else if (!plan.isEmpty()) {
-                        System.out.println(mensaje);
                     }
                     break;
                 default:
