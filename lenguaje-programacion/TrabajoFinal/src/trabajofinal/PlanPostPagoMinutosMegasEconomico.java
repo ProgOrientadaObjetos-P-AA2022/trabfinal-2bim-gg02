@@ -8,25 +8,38 @@ package trabajofinal;
  *
  * @author ronni
  */
-public class PlanPostPagoMinutosMegasEconomico extends PlanCelular{
-    private double minutos; 
-    private double costoMinutos; 
-    private double gigas; 
-    private double costoGigas; 
-    private double porcentajeDescuento;
+public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
 
-    public PlanPostPagoMinutosMegasEconomico(double g, double h, double i
-            , double j, double k, String a, String b
-            , String c, String d, String e, String f) {
+    private double minutos;
+    private double costoMinutos;
+    private double gigas;
+    private double costoGigas;
+    private double porcentajeDescuento;
+// Constructor Base de Datos
+
+    public PlanPostPagoMinutosMegasEconomico(double g, double h, double i,
+            double j, double k, double l, String a, String b,
+            String c, String d, String e, String f) {
         super(a, b, c, d, e, f);
         minutos = g;
         costoMinutos = h;
         gigas = i;
         costoGigas = j;
         porcentajeDescuento = k;
+        pagoMensual = l;
     }
+// Constructor para main
 
-
+    public PlanPostPagoMinutosMegasEconomico(double g, double h, double i,
+            double j, double k, String a, String b,
+            String c, String d, String e, String f) {
+        super(a, b, c, d, e, f);
+        minutos = g;
+        costoMinutos = h;
+        establecerGigas(i);
+        costoGigas = j;
+        porcentajeDescuento = k;
+    }
 
     public void establecerMinutos(double a) {
         minutos = a;
@@ -37,7 +50,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular{
     }
 
     public void establecerGigas(double a) {
-        gigas = a;
+        gigas = a / 1024;
     }
 
     public void establecerCostoGigas(double a) {
@@ -67,25 +80,27 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular{
     public double obtenerPorcentajeDescuento() {
         return porcentajeDescuento;
     }
-    
-    
-    
-    
 
     @Override
     public void establecerPagoMensual() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pagoMensual = (minutos * costoMinutos) + (gigas * costoGigas)
+                - ((minutos * costoMinutos) + (gigas * costoGigas)
+                * porcentajeDescuento
+                / 100);
     }
 
     @Override
     public String toString() {
-        String mensaje = String.format("Minutos: %.2f\n"
+        String mensaje = String.format("\t<--PlanPostPagoMinutosMegas"
+                + "%s\n"
+                + "Económico-->\n"
+                + "Minutos: %.2f\n"
                 + "Costo por minuto: %.2f\n"
                 + "Megas expresado en Gigas: %.2f\n"
                 + "Costo por Giga: %.2f\n"
                 + "Porcentaje de Descuento: %.2f\n"
-                + "Total a pagar: %.2f",minutos, costoMinutos, gigas
-                , costoGigas, porcentajeDescuento, pagoMensual);
-        return mensaje; 
+                + "Total a pagar: %.2f", super.toString(), minutos, costoMinutos, gigas,
+                costoGigas, porcentajeDescuento, pagoMensual);
+        return mensaje;
     }
 }

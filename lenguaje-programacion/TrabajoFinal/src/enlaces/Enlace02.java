@@ -11,13 +11,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import trabajofinal.PlanCelular;
-import trabajofinal.PlanPostPagoMinutos;
+import trabajofinal.PlanPostPagoMinutosMegas;
 
 /**
  *
  * @author ronni
  */
-public class Enlace00 {
+public class Enlace02 {
 
     private Connection conn;
 
@@ -41,15 +41,15 @@ public class Enlace00 {
         return conn;
     }
 
-    public void insertarPlanPostPagoMinutos(PlanPostPagoMinutos plan) {
+    public void insertarPlanPostPagoMinutosMegas(PlanPostPagoMinutosMegas plan) {
 
         try {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
-            String data = String.format("INSERT INTO planPostPagoMinutos(nombre,"
-                    + "cedula, ciudad, marcaCelular, modeloCelular,"
-                    + "numeroCelular, minutosNacionales, costoMinutosNacionales,"
-                    + " minutosInternacionales, costoMinutosInternacionales, pagoMensual) "
+            String data = String.format("INSERT INTO planPostPagoMinutosMegas ("
+                    + "nombre, cedula, ciudad, marcaCelular, modeloCelular,"
+                    + "numeroCelular, numeroMinutos, costoMinutos, megasExpresadaGigas,"
+                    + " costoGigas, pagoMensual ) "
                     + "values ('%s', '%s', '%s', '%s', '%s', '%s', '%.2f'"
                     + ", '%.2f', '%.2f', '%.2f', '%.2f')",
                     plan.obtenerPropietario(),
@@ -58,10 +58,10 @@ public class Enlace00 {
                     plan.obtenerMarcaCelular(),
                     plan.obtenerModeloCelular(),
                     plan.obtenerNumeroCelular(),
-                    plan.obtenerMinutosNacionales(),
-                    plan.obtenerCostoNacional(),
-                    plan.obtenerMinutosInternacionales(),
-                    plan.obtenerCostoInternacional(),
+                    plan.obtenerMinutos(),
+                    plan.obtenerCostoMinutos(),
+                    plan.obtenerGigas(),
+                    plan.obtenerCostoGiga(),
                     plan.obtenerPagoMensual());
             System.out.println(data);
             statement.executeUpdate(data);
@@ -73,23 +73,25 @@ public class Enlace00 {
         }
     }
 
-    public ArrayList<PlanCelular> obtenerDataPlanPostPagoMinutos() {
+    public ArrayList<PlanCelular> obtenerDataPlanPostPagoMinutosMegas() {
         ArrayList<PlanCelular> lista = new ArrayList<>();
         try {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
-            String data = "Select * from planPostPagoMinutos;";
+            String data = "Select * from planPostPagoMinutosMegas;";
 
             ResultSet rs = statement.executeQuery(data);
             while (rs.next()) {
-                PlanPostPagoMinutos plan = new PlanPostPagoMinutos(
-                        rs.getDouble("minutosNacionales"),
-                        rs.getDouble("costoMinutosNacionales"),
-                        rs.getDouble("minutosInternacionales"),
-                        rs.getDouble("costoMinutosInternacionales"),
+                PlanPostPagoMinutosMegas plan = new PlanPostPagoMinutosMegas(
+                        rs.getDouble("numeroMinutos"),
+                        rs.getDouble("costoMinutos"),
+                        rs.getDouble("megasExpresadaGigas"),
+                        rs.getDouble("costoGigas"),
                         rs.getDouble("pagoMensual"),
-                        rs.getString("nombre"), rs.getString("cedula"),
-                        rs.getString("ciudad"), rs.getString("marcaCelular"),
+                        rs.getString("nombre"),
+                        rs.getString("cedula"),
+                        rs.getString("ciudad"),
+                        rs.getString("marcaCelular"),
                         rs.getString("modeloCelular"),
                         rs.getString("numeroCelular"));
                 lista.add(plan);

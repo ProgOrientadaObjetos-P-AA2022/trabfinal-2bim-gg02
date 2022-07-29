@@ -13,13 +13,24 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
     private double costoMinutos; 
     private double gigas;
     private double costoGiga;
-
-    public PlanPostPagoMinutosMegas(double g, double h, double i, double j
+    
+    // Constructor Base de Datos
+    public PlanPostPagoMinutosMegas(double g, double h, double i, double j, double k
             , String a, String b, String c, String d, String e, String f) {
         super(a, b, c, d, e, f);
         minutos = g;
         costoMinutos = h;
         gigas = i;
+        costoGiga = j;
+        pagoMensual = k;
+    }
+    // Constructor Main
+    public PlanPostPagoMinutosMegas(double g, double h, double i, double j
+            , String a, String b, String c, String d, String e, String f) {
+        super(a, b, c, d, e, f);
+        minutos = g;
+        costoMinutos = h;
+        establecerGigas(i);
         costoGiga = j;
     }
 
@@ -34,7 +45,7 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
     }
 
     public void establecerGigas(double a) {
-        gigas = a;
+        gigas = a/1024;
     }
 
     public void establecerCostoGiga(double a) {
@@ -59,11 +70,14 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
 
     @Override
     public String toString() {
-        String mensaje = String.format("Minutos: %.2f\n"
+        String mensaje = String.format("<--PlanPostPagoMinutosMegas-->\n"
+                + "%s\n"
+                + "Minutos: %.2f\n"
                 + "Costo de los minutos: %.2f\n"
                 + "Megas Expresadas en Gigas: %.2f\n"
                 + "Costo por Giga: %.2f\n"
-                + "Total a pagar: %.2f", minutos, costoMinutos, gigas
+                + "Total a pagar: %.2f", super.toString()
+                , minutos, costoMinutos, gigas
                 , costoGiga, pagoMensual);
         return mensaje;
     }
@@ -75,7 +89,7 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
 
     @Override
     public void establecerPagoMensual() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pagoMensual = (minutos * costoMinutos) + (gigas * costoGiga);
     }
     
 }

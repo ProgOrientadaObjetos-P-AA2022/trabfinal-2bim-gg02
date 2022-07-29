@@ -15,6 +15,7 @@ public class PlanPostPagoMinutos extends PlanCelular {
     private double minutosInternacionales;
     private double costoInternacional;
 
+    // Constructor Base de Datos
     public PlanPostPagoMinutos(double g, double h, double i, double j, double k,
             String a, String b, String c, String d, String e, String f) {
         super(a, b, c, d, e, f);
@@ -24,6 +25,7 @@ public class PlanPostPagoMinutos extends PlanCelular {
         costoInternacional = j;
         pagoMensual = k;
     }
+// Constructor Main
 
     public PlanPostPagoMinutos(double g, double h, double i, double j,
             String a, String b, String c, String d, String e, String f) {
@@ -74,11 +76,13 @@ public class PlanPostPagoMinutos extends PlanCelular {
 
     @Override
     public String toString() {
-        String mensaje = String.format("Minutos Nacionales: %.2f\n"
+        String mensaje = String.format("\t<--PlanPostPagoMinutos-->\n"
+                + "%s"
+                + "Minutos Nacionales: %.2f\n"
                 + "Costo de los minutos Nacionales: %.2f\n"
                 + "Minutos Internacionales: %.2f\n"
                 + "Costo de los Minutos Internacionales: %.2f\n"
-                + "Costo Final: %.2f\n",
+                + "Costo Final: %.2f\n", super.toString(),
                 minutosNacionales,
                 costoNacional,
                 minutosInternacionales,
